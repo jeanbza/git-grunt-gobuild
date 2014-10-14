@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   var chalk = require('chalk');
 
   grunt.registerMultiTask('gocompile', 'Compile Go files.', function() {
-    for (var src in this.data) {
+    for (var src in this.data.files) {
       var dest = this.data[src];
       var binary = src.substring(0, src.length-3);
 

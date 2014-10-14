@@ -7,15 +7,28 @@ module.exports = function(grunt) {
     jshint: {
       all: [
         'Gruntfile.js',
-        'tasks/*.js'
+        'tasks/*.js',
+        '<%= nodeunit.tests %>'
       ],
       options: {
         jshintrc: '.jshintrc'
       }
     },
+
+    gocompile: {
+      basic: {
+        files: { 'test/fixtures/basic.go': ['test/tmp/basic'] }
+      }
+    },
+
     // Before generating any new files, remove any previously-created files.
     clean: {
-      test: ['tmp']
+      test: ['test/tmp/*']
+    },
+
+    // Unit tests.
+    nodeunit: {
+      tests: ['test/*_test.js']
     }
   });
 
@@ -25,12 +38,13 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-internal');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   // NOTE: We run the task twice to check for file overwrite issues.
-  grunt.registerTask('test', ['jshint', 'clean']);
+  grunt.registerTask('test', ['jshint', 'clean', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['test', 'build-contrib']);

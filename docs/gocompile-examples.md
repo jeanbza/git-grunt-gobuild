@@ -4,9 +4,15 @@
 
 ```go
 gocompile: {
-  files: {
-    'main.go': 'binary_one',
-    'other.go': 'binary_two'
+  first: {
+    files: {
+      'main.go': 'binary_one',
+    }
+  },
+  second: {
+    files: {
+      'other.go': 'binary_two'
+    }
   }
 }
 ```
