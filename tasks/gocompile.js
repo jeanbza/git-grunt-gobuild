@@ -8,8 +8,8 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('gocompile', 'Compile Go files.', function() {
     for (var src in this.data.files) {
-      var dest = this.data[src];
-      var binary = src.substring(0, src.length-3);
+      var dest = this.data.files[src];
+      var binary = shelljs.exec('basename ' + src).output.replace('.go\n', '');
 
       shelljs.exec('go build '+src);
       shelljs.exec('mv '+binary+' '+dest);

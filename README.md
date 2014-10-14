@@ -36,9 +36,15 @@ To be added!
 
 ```go
 gocompile: {
-  files: {
-    'main.go': 'binary_one',
-    'other.go': 'binary_two'
+  first: {
+    files: {
+      'main.go': 'binary_one',
+    }
+  },
+  second: {
+    files: {
+      'other.go': 'binary_two'
+    }
   }
 }
 ```
@@ -51,4 +57,4 @@ gocompile: {
 
 Task submitted by [Jean de Klerk](jeandeklerk.com)
 
-*This file was generated on Mon Oct 13 2014 21:24:56.*
+*This file was generated on Mon Oct 13 2014 22:33:18.*

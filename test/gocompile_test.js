@@ -7,7 +7,9 @@ exports.gocompile = {
   basic: function(test) {
     test.expect(1);
 
-    shelljs.exec('test/tmp/basic');
+    shelljs.cd('test/tmp');
+    shelljs.exec('./basic');
+    shelljs.cd('../..');
 
     var expect = grunt.file.read('test/expected/basic');
     var result = grunt.file.read('test/tmp/basic_out');
