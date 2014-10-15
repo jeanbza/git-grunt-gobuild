@@ -2,17 +2,15 @@
 
 ## Compile a Go program into a binary
 
-```go
+```javascript
 gocompile: {
   first: {
-    files: {
-      'main.go': 'binary_one',
-    }
+    src: "main.go",
+    dest: "binary_one"
   },
   second: {
-    files: {
-      'other.go': 'binary_two'
-    }
+    src: "some/location/other.go",
+    dest: "/tmp/binary_two"
   }
 }
 ```

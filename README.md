@@ -34,17 +34,15 @@ To be added!
 
 #### Compile a Go program into a binary
 
-```go
+```javascript
 gocompile: {
   first: {
-    files: {
-      'main.go': 'binary_one',
-    }
+    src: "main.go",
+    dest: "binary_one"
   },
   second: {
-    files: {
-      'other.go': 'binary_two'
-    }
+    src: "some/location/other.go",
+    dest: "/tmp/binary_two"
   }
 }
 ```
@@ -57,4 +55,4 @@ gocompile: {
 
 Task submitted by [Jean de Klerk](jeandeklerk.com)
 
-*This file was generated on Mon Oct 13 2014 22:33:18.*
+*This file was generated on Wed Oct 15 2014 12:44:36.*
