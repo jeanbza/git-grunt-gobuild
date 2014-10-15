@@ -7,14 +7,11 @@ module.exports = function(grunt) {
   var chalk = require('chalk');
 
   grunt.registerMultiTask('gocompile', 'Compile Go files.', function() {
-    for (var src in this.data.files) {
-      var dest = this.data.files[src];
-      var binary = shelljs.exec('basename ' + src).output.replace('.go\n', '');
+    var binary = shelljs.exec('basename ' + this.data.src).output.replace('.go\n', '');
 
-      shelljs.exec('go build '+src);
-      shelljs.exec('mv '+binary+' '+dest);
+    shelljs.exec('go build '+this.data.src);
+    shelljs.exec('mv '+binary+' '+this.data.dest);
 
-      grunt.log.writeln('File ' + chalk.cyan(src) + ' compiled to ' + chalk.cyan(dest) + '.');
-    }
+    grunt.log.writeln('File ' + chalk.cyan(this.data.src) + ' compiled to ' + chalk.cyan(this.data.dest) + '.');
   });
 };
