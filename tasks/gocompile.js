@@ -4,7 +4,6 @@ var spawn = require('child_process').spawn;
 
 module.exports = function(grunt) {
     // Internal lib.
-    var shelljs = require('shelljs');
     var chalk = require('chalk');
 
     var opts = {
@@ -15,6 +14,13 @@ module.exports = function(grunt) {
             grunt.log.error(data);
         }
     };
+
+    function getBinaryFromPath(path) {
+        var pathSegments = path.split('/');
+        var binary = pathSegments[pathSegments.length-1].replace('.go', '');
+
+        return binary;
+    }
 
     function spawnTasks(done, tasks, opts, finishedCallback) {
         var task = tasks.shift();
@@ -48,18 +54,18 @@ module.exports = function(grunt) {
     }
 
     grunt.registerMultiTask('gocompile', 'Compile Go files.', function() {
-        var binary = shelljs.exec('basename ' + this.data.src).output.replace('.go\n', '');
+        var src = this.data.src;
+        var dest = this.data.dest;
+        var binary = getBinaryFromPath(src);
 
         var tasks = [{
             cmd: 'go',
-            args: ['build', this.data.src]
+            args: ['build', src]
         }, {
             cmd: 'mv',
-            args: [binary, this.data.dest]
+            args: [binary, dest]
         }];
 
-        var src = this.data.src;
-        var dest = this.data.dest;
         var finishedCallback = function() {
             grunt.log.writeln('File ' + chalk.cyan(src) + ' compiled to ' + chalk.cyan(dest) + '.');
         };
