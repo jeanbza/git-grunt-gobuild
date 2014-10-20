@@ -1,20 +1,20 @@
 'use strict';
 
 var grunt = require('grunt');
-var shelljs = require('shelljs');
+var child_process = require('child_process');
 
 exports.gocompile = {
-  basic: function(test) {
-    test.expect(1);
+    basic: function(test) {
+        test.expect(1);
 
-    shelljs.cd('test/tmp');
-    shelljs.exec('./basic');
-    shelljs.cd('../..');
+        var proc = child_process.execFile('./basic', [], {
+            cwd: 'test/tmp/'
+        }, function() {
+            var expect = grunt.file.read('test/expected/basic');
+            var result = grunt.file.read('test/tmp/basic_out');
+            test.equal(expect, result, 'should compile and run go program');
 
-    var expect = grunt.file.read('test/expected/basic');
-    var result = grunt.file.read('test/tmp/basic_out');
-    test.equal(expect, result, 'should compile and run go program');
-
-    test.done();
-  }
+            test.done();
+        });
+    }
 };
