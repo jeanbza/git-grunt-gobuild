@@ -19,6 +19,14 @@ module.exports = function(grunt) {
       basic: {
         src: 'test/fixtures/basic.go',
         dest: 'test/tmp/basic'
+      },
+      flags: {
+        src: 'test/fixtures/flags.go',
+        dest: 'test/tmp/flags',
+        flags: {
+          foo: "hello",
+          bar: "world"
+        }
       }
     },
 

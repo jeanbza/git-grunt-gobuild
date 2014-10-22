@@ -16,5 +16,18 @@ exports.gocompile = {
 
             test.done();
         });
+    },
+    flags: function(test) {
+        test.expect(1);
+
+        var proc = child_process.execFile('./flags', [], {
+            cwd: 'test/tmp/'
+        }, function() {
+            var expect = grunt.file.read('test/expected/flags');
+            var result = grunt.file.read('test/tmp/flags_out');
+            test.equal(expect, result, 'should compile and run go program with associated flags');
+
+            test.done();
+        });
     }
 };
