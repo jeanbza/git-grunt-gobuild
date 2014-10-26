@@ -20,13 +20,15 @@ module.exports = function(grunt) {
         src: 'test/fixtures/basic.go',
         dest: 'test/tmp/basic'
       },
-      flags: {
-        src: 'test/fixtures/flags.go',
-        dest: 'test/tmp/flags',
-        flags: {
-          foo: "hello",
-          bar: "world"
-        }
+      goarch1: {
+        src: 'test/fixtures/goarch.go',
+        dest: 'test/tmp/goarch1',
+        goarch: '386'
+      },
+      goarch2: {
+        src: 'test/fixtures/goarch.go',
+        dest: 'test/tmp/goarch2',
+        goarch: 'amd64'
       }
     },
 

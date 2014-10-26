@@ -58,6 +58,10 @@ module.exports = function(grunt) {
         var dest = this.data.dest;
         var binary = getBinaryFromPath(src);
 
+        if (this.data.goarch) {
+            process.env.GOARCH = this.data.goarch;
+        }
+
         var tasks = [{
             cmd: 'go',
             args: ['build', src]
