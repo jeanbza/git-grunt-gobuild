@@ -3,5 +3,7 @@ node_js:
   - "0.10"
 before_script:
   - npm install -g grunt-cli
+  - pushd .
   - cd /home/travis/.gvm/gos/go1.3.3/src && sudo GOARCH=386 ./make.bash --no-clean
   - cd /home/travis/.gvm/gos/go1.3.3/src && sudo GOARCH=amd64 ./make.bash --no-clean
+  - popd
