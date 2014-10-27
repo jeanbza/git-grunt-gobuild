@@ -36,7 +36,7 @@ exports.gocompile = {
         var proc = child_process.exec("file goarch2", {
             cwd: 'test/tmp/'
         }, function(error, stdout, stderr) {
-            var expect = 'x86_64';
+            var expect = '64';
             var result = stdout;
 
             test.equal(true, result.indexOf(expect) > -1, 'should compile and run go program with associated goarch - "'+result+'".indexOf('+expect+')');
