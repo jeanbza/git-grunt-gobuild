@@ -20,26 +20,26 @@ exports.gocompile = {
     goarch1: function(test) {
         test.expect(1);
 
-        var proc = child_process.exec("file goarch1 | awk '{print $4}'", {
+        var proc = child_process.exec("file goarch1", {
             cwd: 'test/tmp/'
         }, function(error, stdout, stderr) {
-            var expect = 'i386\n';
+            var expect = '386';
             var result = stdout;
 
-            test.equal(expect, result, 'should compile and run go program with associated goarch');
+            test.equal(true, result.indexOf(expect) > -1, 'should compile and run go program with associated goarch - "'+result+'".indexOf('+expect+')');
             test.done();
         });
     },
     goarch2: function(test) {
         test.expect(1);
 
-        var proc = child_process.exec("file goarch2 | awk '{print $5}'", {
+        var proc = child_process.exec("file goarch2", {
             cwd: 'test/tmp/'
         }, function(error, stdout, stderr) {
-            var expect = 'x86_64\n';
+            var expect = 'x86_64';
             var result = stdout;
 
-            test.equal(expect, result, 'should compile and run go program with associated goarch');
+            test.equal(true, result.indexOf(expect) > -1, 'should compile and run go program with associated goarch - "'+result+'".indexOf('+expect+')');
             test.done();
         });
     }
