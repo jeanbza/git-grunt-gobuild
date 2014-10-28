@@ -29,6 +29,16 @@ module.exports = function(grunt) {
         src: 'test/fixtures/goarch.go',
         dest: 'test/tmp/goarch2',
         goarch: 'amd64'
+      },
+      goos1: {
+        src: 'test/fixtures/goos.go',
+        dest: 'test/tmp/goos1',
+        goos: 'darwin'
+      },
+      goos2: {
+        src: 'test/fixtures/goos.go',
+        dest: 'test/tmp/goos2.exe',
+        goos: 'windows'
       }
     },
 

@@ -15,18 +15,15 @@ gocompile: {
 }
 ```
 
-## Compile with goarch
+## Compile with goarch and goos
 
 ```javascript
 gocompile: {
   first: {
     src: "main.go",
-    dest: "binary_one",
-    goarch: 386
-  },
-  second: {
-    src: "some/location/other.go",
-    dest: "/tmp/binary_two"
+    dest: "my_executable.exe",
+    goarch: 386,
+    goos: windows
   }
 }
 ```

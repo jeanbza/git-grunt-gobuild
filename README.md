@@ -37,6 +37,8 @@ Please note that some tests require you to have bootstrapped the amd64 and i386 
 cd $GOROOT/src
 GOARCH=386 ./make.bash   # May need to sudo
 GOARCH=amd64 ./make.bash # May need to sudo
+GOOS=darwin ./make.bash  # May need to sudo
+GOOS=windows ./make.bash # May need to sudo
 ```
 ### Options
 
@@ -46,8 +48,8 @@ Set to your go file with func main().
 ###### dest
 The destination binary (with binary name included).
 
-###### goarch
-The architecture to build for. See [the chart here](https://golang.org/doc/install/source) for reference. Leave undefined for the default architecture on your system.
+###### goarch and goos
+The architecture / OS to build for. See [the chart here](https://golang.org/doc/install/source) for reference. Leave undefined for the default architecture / OS on your system.
 ### Usage Examples
 
 #### Basic compilation
@@ -65,18 +67,15 @@ gocompile: {
 }
 ```
 
-#### Compile with goarch
+#### Compile with goarch and goos
 
 ```javascript
 gocompile: {
   first: {
     src: "main.go",
-    dest: "binary_one",
-    goarch: 386
-  },
-  second: {
-    src: "some/location/other.go",
-    dest: "/tmp/binary_two"
+    dest: "my_executable.exe",
+    goarch: 386,
+    goos: windows
   }
 }
 ```
@@ -89,4 +88,4 @@ gocompile: {
 
 Task submitted by [Jean de Klerk](jeandeklerk.com)
 
-*This file was generated on Sun Oct 26 2014 21:30:53.*
+*This file was generated on Mon Oct 27 2014 18:50:17.*

@@ -26,8 +26,9 @@ module.exports = function(grunt) {
         var task = tasks.shift();
         var cmd = task.cmd;
         var args = task.args;
+        var commandText = cmd+" "+args.join(' ');
 
-        console.log("Executing "+cmd+" "+args.join(' '));
+        console.log("Executing "+commandText);
 
         function spawnFunc() {
             var proc = spawn(cmd, args, opts);
@@ -40,7 +41,15 @@ module.exports = function(grunt) {
                 opts.stderr(data);
             });
 
+            proc.on('error', function(err) {
+                console.log(err);
+            });
+
             proc.on('exit', function (status) {
+                if (status !== 0) {
+                    grunt.fail.fatal("Failure executing "+commandText+" with exit code "+status+".");
+                }
+
                 if (tasks.length === 0) {
                     finishedCallback();
                     done();
@@ -60,6 +69,14 @@ module.exports = function(grunt) {
 
         if (this.data.goarch) {
             process.env.GOARCH = this.data.goarch;
+        }
+
+        if (this.data.goos) {
+            process.env.GOOS = this.data.goos;
+
+            if (this.data.goos === 'windows') {
+                binary += ".exe";
+            }
         }
 
         var tasks = [{

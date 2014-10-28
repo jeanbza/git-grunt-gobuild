@@ -7,4 +7,6 @@ Please note that some tests require you to have bootstrapped the amd64 and i386 
 cd $GOROOT/src
 GOARCH=386 ./make.bash   # May need to sudo
 GOARCH=amd64 ./make.bash # May need to sudo
+GOOS=darwin ./make.bash  # May need to sudo
+GOOS=windows ./make.bash # May need to sudo
 ```
