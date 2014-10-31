@@ -3,7 +3,7 @@
 ## Basic compilation
 
 ```javascript
-gocompile: {
+gobuild: {
   first: {
     src: "main.go",
     dest: "binary_one"
@@ -18,7 +18,7 @@ gocompile: {
 ## Compile with goarch and goos
 
 ```javascript
-gocompile: {
+gobuild: {
   first: {
     src: "main.go",
     dest: "my_executable.exe",

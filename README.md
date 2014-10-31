@@ -1,6 +1,4 @@
-# grunt-contrib-gocompile v0.1.0
-
-[![Build Status](https://travis-ci.org/jadekler/git-grunt-gocompile.svg?branch=master)](https://travis-ci.org/jadekler/git-grunt-gocompile)
+# grunt-contrib-gocompile v0.1.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-gocompile.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-gocompile)
 
 > Compile Go files
 
@@ -55,7 +53,7 @@ The architecture / OS to build for. See [the chart here](https://golang.org/doc/
 #### Basic compilation
 
 ```javascript
-gocompile: {
+gobuild: {
   first: {
     src: "main.go",
     dest: "binary_one"
@@ -70,7 +68,7 @@ gocompile: {
 #### Compile with goarch and goos
 
 ```javascript
-gocompile: {
+gobuild: {
   first: {
     src: "main.go",
     dest: "my_executable.exe",
@@ -88,4 +86,4 @@ gocompile: {
 
 Task submitted by [Jean de Klerk](jeandeklerk.com)
 
-*This file was generated on Mon Oct 27 2014 18:50:17.*
+*This file was generated on Thu Oct 30 2014 20:53:37.*

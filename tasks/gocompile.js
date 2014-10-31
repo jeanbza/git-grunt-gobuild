@@ -62,7 +62,7 @@ module.exports = function(grunt) {
         return spawnFunc;
     }
 
-    grunt.registerMultiTask('gocompile', 'Compile Go files.', function() {
+    grunt.registerMultiTask('gobuild', 'Compile Go files.', function() {
         var src = this.data.src;
         var dest = this.data.dest;
         var binary = getBinaryFromPath(src);

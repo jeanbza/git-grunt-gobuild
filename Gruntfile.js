@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       }
     },
 
-    gocompile: {
+    gobuild: {
       basic: {
         src: 'test/fixtures/basic.go',
         dest: 'test/tmp/basic'
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   // NOTE: We run the task twice to check for file overwrite issues.
-  grunt.registerTask('test', ['jshint', 'clean', 'gocompile', 'nodeunit', 'clean']);
+  grunt.registerTask('test', ['jshint', 'clean', 'gobuild', 'nodeunit', 'clean']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['test', 'build-contrib']);
