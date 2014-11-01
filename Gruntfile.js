@@ -17,8 +17,8 @@ module.exports = function(grunt) {
 
     gobuild: {
       basic: {
-        src: 'test/fixtures/basic.go',
-        dest: 'test/tmp/basic'
+        src: 'test/fixtures/gobuild_basic.go',
+        dest: 'test/tmp/gobuild_basic'
       },
       goarch1: {
         src: 'test/fixtures/goarch.go',
@@ -40,6 +40,10 @@ module.exports = function(grunt) {
         dest: 'test/tmp/goos2.exe',
         goos: 'windows'
       }
+    },
+
+    gorun: {
+      src: 'test/fixtures/gobuild_basic.go'
     },
 
     // Before generating any new files, remove any previously-created files.

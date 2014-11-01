@@ -11,7 +11,7 @@ func check(e error) {
 }
 
 func main() {
-    f, err := os.Create("basic_out")
+    f, err := os.Create("gobuild_basic_out")
     check(err)
 
     defer f.Close()
