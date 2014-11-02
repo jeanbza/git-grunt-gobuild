@@ -4,6 +4,7 @@ var spawn = require('child_process').spawn;
 var fs = require('fs');
 
 module.exports = function(grunt) {
+    var pidFile = "gorun.pid";
     var out = fs.openSync('./out.log', 'a');
     var err = fs.openSync('./out.log', 'a');
     var opts = {
@@ -18,6 +19,7 @@ module.exports = function(grunt) {
     };
 
     grunt.registerMultiTask('gorun', 'Run Go programs.', function() {
+        var done = this.async();
         var src = this.data.src;
         var commandText = "go run "+src;
 
@@ -27,23 +29,14 @@ module.exports = function(grunt) {
         var proc = spawn('go', ['run', src], opts);
         proc.unref();
 
-        var done = this.async();
-
-        proc.on('stdout', function(data) {
-            opts.stdout(data);
-        });
-
-        proc.on('stderr', function(data) {
-            opts.stderr(data);
-        });
-
-        proc.on('error', function(err) {
-            console.log(err);
+        fs.appendFile(pidFile, proc.pid, function (err) {
+            if (err) {
+                throw err;
+            }
+            console.log('The pid of the running program was appended to '+pidFile);
         });
 
         proc.on('exit', function (status) {
-            grunt.log.error(proc.stdout._readableState.buffer);
-            grunt.log.error(proc.stderr._readableState.buffer);
             if (status !== 0) {
                 grunt.fail.fatal("Failure executing go run with exit code "+status+".");
             }
