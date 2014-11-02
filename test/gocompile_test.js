@@ -92,6 +92,7 @@ exports.gocompile = {
             });
         }).on('error', function(e) {
             test.equal(false, true, 'Got error: ' + e);
+            test.equal(false, true, "Second assertion failed because couldn't connect to running go program.");
             test.done();
         });
     }
