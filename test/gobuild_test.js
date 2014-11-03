@@ -70,10 +70,5 @@ exports.gobuild = {
             test.equal(true, result.indexOf(expect) > -1, 'should compile and run go program with associated goos - "'+result+'".indexOf('+expect+')');
             test.done();
         });
-    },
-    blah: function(test) {
-        test.expect(1);
-        test.equal(true, false, 'blah');
-        test.done();
     }
 };

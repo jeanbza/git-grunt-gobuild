@@ -36,12 +36,6 @@ module.exports = function(grunt) {
             grunt.log.writeln('The pid of the process '+chalk.cyan(commandText)+' was appended to '+chalk.cyan(pidFile)+'.');
         });
 
-        proc.on('exit', function (status) {
-            if (status !== 0) {
-                grunt.fail.fatal("Failure executing go run with exit code "+status+".");
-            }
-
-            done();
-        });
+        done();
     });
 };

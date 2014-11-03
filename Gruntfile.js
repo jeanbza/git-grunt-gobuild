@@ -49,12 +49,12 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      test: ['test/tmp/*']
+      test: ['test/tmp/*', 'gorun.pid']
     },
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/gobuild_test.js']
+      tests: ['test/*_test.js']
     }
   });
 
