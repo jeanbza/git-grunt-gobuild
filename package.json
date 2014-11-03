@@ -1,5 +1,5 @@
 {
-  "name": "grunt-contrib-gocompile",
+  "name": "grunt-contrib-gobuild",
   "description": "Compile Go files",
   "version": "0.1.0",
   "author": {
@@ -7,15 +7,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gruntjs/grunt-contrib-gocompile.git"
+    "url": "git://github.com/gruntjs/grunt-contrib-gobuild.git"
   },
   "bugs": {
-    "url": "https://github.com/gruntjs/grunt-contrib-gocompile/issues"
+    "url": "https://github.com/gruntjs/grunt-contrib-gobuild/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/gruntjs/grunt-contrib-gocompile/blob/master/LICENSE-MIT"
+      "url": "https://github.com/gruntjs/grunt-contrib-gobuild/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
@@ -44,8 +44,8 @@
     "tasks",
     "LICENSE-MIT"
   ],
-  "_id": "grunt-contrib-gocompile@0.1.0",
-  "_from": "grunt-contrib-gocompile@~0.1.0",
+  "_id": "grunt-contrib-gobuild@0.2.0",
+  "_from": "grunt-contrib-gobuild@~0.2.0",
   "_npmVersion": "1.4.3",
   "_npmUser": {
     "name": "jadekler",
@@ -53,8 +53,8 @@
   },
   "maintainers": [
     {
-      "name": "gocompile",
-      "email": "gocompile@gmail.com"
+      "name": "Jean de Klerk",
+      "email": "jadeklere@gmail.com"
     }
   ],
   "readme": "ERROR: No README data found!"
