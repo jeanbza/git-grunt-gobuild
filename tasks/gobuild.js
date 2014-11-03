@@ -1,11 +1,9 @@
 'use strict';
 
+var chalk = require('chalk');
 var spawn = require('child_process').spawn;
 
 module.exports = function(grunt) {
-    // Internal lib.
-    var chalk = require('chalk');
-
     var opts = {
         stdout: function (data) {
             grunt.log.writeln(data);

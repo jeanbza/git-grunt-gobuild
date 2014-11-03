@@ -1,5 +1,6 @@
 'use strict';
 
+var chalk = require('chalk');
 var spawn = require('child_process').spawn;
 var fs = require('fs');
 
@@ -22,10 +23,8 @@ module.exports = function(grunt) {
         var done = this.async();
         var src = this.data.src;
         var commandText = "go run "+src;
-
-        console.log("Executing "+commandText);
-
         process.env.GOOS="darwin";
+
         var proc = spawn('go', ['run', src], opts);
         proc.unref();
 
@@ -33,7 +32,8 @@ module.exports = function(grunt) {
             if (err) {
                 throw err;
             }
-            console.log('The pid of the running program was appended to '+pidFile);
+
+            grunt.log.writeln('The pid of the process '+chalk.cyan(commandText)+' was appended to '+chalk.cyan(pidFile)+'.');
         });
 
         proc.on('exit', function (status) {

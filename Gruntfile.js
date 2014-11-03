@@ -41,7 +41,6 @@ module.exports = function(grunt) {
         goos: 'windows'
       }
     },
-
     gorun: {
       basic: {
         src: 'test/fixtures/gorun_basic.go'
@@ -55,7 +54,7 @@ module.exports = function(grunt) {
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js']
+      tests: ['test/gobuild_test.js']
     }
   });
 
