@@ -2,7 +2,6 @@
 
 var grunt = require('grunt');
 var http = require('http');
-var fs = require('fs');
 
 exports.gorun = {
     gorunBasic: function(test) {
@@ -30,13 +29,5 @@ exports.gorun = {
             test.equal(false, true, "Second assertion failed because couldn't connect to running go program.");
             test.done();
         });
-    },
-    gorunPid: function(test) {
-        test.expect(1);
-
-        fs.exists('gorun.pid', function (exists) {
-            test.equal(true, exists, 'PID file was not created after executing gorun');
-            test.done();
-        });
-    }
+    }   
 };

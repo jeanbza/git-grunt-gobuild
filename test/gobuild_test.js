@@ -3,7 +3,6 @@
 var grunt = require('grunt');
 var http = require('http');
 var child_process = require('child_process');
-var fs = require('fs');
 
 exports.gobuild = {
     gobuildBasic: function(test) {

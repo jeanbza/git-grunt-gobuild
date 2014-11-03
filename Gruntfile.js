@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      test: ['test/tmp/*', 'gorun.pid']
+      test: ['test/tmp/*']
     },
 
     // Unit tests.

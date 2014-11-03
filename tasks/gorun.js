@@ -6,8 +6,6 @@ var fs = require('fs');
 
 module.exports = function(grunt) {
     var pidFile = "gorun.pid";
-    var out = fs.openSync('./out.log', 'a');
-    var err = fs.openSync('./out.log', 'a');
     var opts = {
         stdout: function (data) {
             grunt.log.writeln(data);
@@ -16,7 +14,7 @@ module.exports = function(grunt) {
             grunt.log.error(data);
         },
         detached: true,
-        stdio: [ 'ignore', out, err ]
+        stdio: [ 'ignore', process.stdin, process.stdout ]
     };
 
     grunt.registerMultiTask('gorun', 'Run Go programs.', function() {
@@ -27,14 +25,6 @@ module.exports = function(grunt) {
 
         var proc = spawn('go', ['run', src], opts);
         proc.unref();
-
-        fs.appendFile(pidFile, proc.pid, function (err) {
-            if (err) {
-                throw err;
-            }
-
-            grunt.log.writeln('The pid of the process '+chalk.cyan(commandText)+' was appended to '+chalk.cyan(pidFile)+'.');
-        });
 
         done();
     });
