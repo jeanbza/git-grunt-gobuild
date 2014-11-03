@@ -1,4 +1,5 @@
-# grunt-contrib-gocompile v0.1.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-gocompile.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-gocompile)
+# grunt-contrib-gocompile v0.1.0
+[![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-gocompile.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-gocompile)
 
 > Compile Go files
 
