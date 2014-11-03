@@ -1,4 +1,6 @@
-# grunt-contrib-gobuild v0.1.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-gobuild.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-gobuild)
+# grunt-contrib-gobuild v0.1.0
+
+[![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-gobuild.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-gobuild)
 
 > Compile Go files
 
@@ -87,4 +89,4 @@ gobuild: {
 
 Task submitted by [Jean de Klerk](jeandeklerk.com)
 
-*This file was generated on Mon Nov 03 2014 12:44:34.*
+*This file was generated on Mon Nov 03 2014 12:45:26.*
