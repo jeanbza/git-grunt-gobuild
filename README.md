@@ -1,6 +1,6 @@
 # grunt-contrib-gobuild v0.1.0
 
-[![Build Status](https://travis-ci.org/jadekler/git-grunt-gocompile.svg?branch=master)](https://travis-ci.org/jadekler/git-grunt-gocompile)
+[![Build Status](https://travis-ci.org/jadekler/git-grunt-gocompile.svg)](https://travis-ci.org/jadekler/git-grunt-gocompile)
 
 > Compile Go files
 
