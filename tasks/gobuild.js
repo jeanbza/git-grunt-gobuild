@@ -20,50 +20,14 @@ module.exports = function(grunt) {
         return binary;
     }
 
-    function spawnTasks(done, tasks, opts, finishedCallback) {
-        var task = tasks.shift();
-        var cmd = task.cmd;
-        var args = task.args;
-        var commandText = cmd+" "+args.join(' ');
-
-        console.log("Executing "+commandText);
-
-        function spawnFunc() {
-            var proc = spawn(cmd, args, opts);
-
-            proc.on('stdout', function(data) {
-                opts.stdout(data);
-            });
-
-            proc.on('stderr', function(data) {
-                opts.stderr(data);
-            });
-
-            proc.on('error', function(err) {
-                console.log(err);
-            });
-
-            proc.on('exit', function (status) {
-                if (status !== 0) {
-                    grunt.fail.fatal("Failure executing "+commandText+" with exit code "+status+".");
-                }
-
-                if (tasks.length === 0) {
-                    finishedCallback();
-                    done();
-                } else {
-                    spawnTasks(done, tasks, opts, finishedCallback)();
-                }
-            });
-        }
-
-        return spawnFunc;
-    }
-
     grunt.registerMultiTask('gobuild', 'Compile Go programs.', function() {
+        var done = this.async();
         var src = this.data.src;
         var dest = this.data.dest;
         var binary = getBinaryFromPath(src);
+        var commandText = "go build -o "+dest+" "+src;
+
+        console.log("Executing "+commandText);
 
         if (this.data.goarch) {
             process.env.GOARCH = this.data.goarch;
@@ -77,18 +41,26 @@ module.exports = function(grunt) {
             }
         }
 
-        var tasks = [{
-            cmd: 'go',
-            args: ['build', src]
-        }, {
-            cmd: 'mv',
-            args: [binary, dest]
-        }];
+        var proc = spawn('go', ['build', '-o', dest, src], opts);
 
-        var finishedCallback = function() {
-            grunt.log.writeln('File ' + chalk.cyan(src) + ' compiled to ' + chalk.cyan(dest) + '.');
-        };
+        proc.on('stdout', function(data) {
+            opts.stdout(data);
+        });
 
-        spawnTasks(this.async(), tasks, opts, finishedCallback)();
+        proc.on('stderr', function(data) {
+            opts.stderr(data);
+        });
+
+        proc.on('error', function(err) {
+            console.log(err);
+        });
+
+        proc.on('exit', function (status) {
+            if (status !== 0) {
+                grunt.fail.fatal("Failure executing "+commandText+" with exit code "+status+".");
+            }
+            
+            done();
+        });
     });
 };

@@ -1,6 +1,6 @@
-# git-grunt-gobuild v0.1.0 
+# git-grunt-gobuild v0.2.1
 
-[![Build Status](https://travis-ci.org/jadekler/git-grunt-gobuild.svg?branch=master)](https://travis-ci.org/jadekler/git-grunt-gobuild)
+[![Build Status](https://travis-ci.org/jadekler/git-grunt-gobuild.svg)](https://travis-ci.org/jadekler/git-grunt-gobuild)
 
 > Compile Go files
 
@@ -82,6 +82,7 @@ gobuild: {
 
 ## Release History
 
+ * 2014-10-13   v0.2.1   Simplified gobuild process with the -o flag.
  * 2014-10-13   v0.2.0   Formally changed the project to gobuild, and split out [gorun to separate project](git@github.com:jadekler/git-grunt-gorun.git).
  * 2014-10-13   v0.1.0   Initial commit with basic functionality - Go Build.
 
@@ -89,4 +90,4 @@ gobuild: {
 
 Task submitted by [Jean de Klerk](jeandeklerk.com)
 
-*This file was generated on Tue Nov 04 2014 20:43:07.*
+*This file was generated on Thu Nov 20 2014 07:40:49.*
