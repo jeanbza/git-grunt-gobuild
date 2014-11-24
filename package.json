@@ -44,8 +44,8 @@
     "tasks",
     "LICENSE-MIT"
   ],
-  "_id": "git-grunt-gobuild@0.2.0",
-  "_from": "git-grunt-gobuild@~0.2.0",
+  "_id": "git-grunt-gobuild@0.2.1",
+  "_from": "git-grunt-gobuild@~0.2.1",
   "_npmVersion": "1.4.3",
   "_npmUser": {
     "name": "jadekler",
